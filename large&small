@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{int len,n;
+printf("enter the len of array \n");
+scanf("%d",&len);
+n=len;
+   int a[5];
+   char str[12];
+   int i,large=-9999,small=9999,j=0;
+   printf("enter the array");
+   for(i=0;i<n;i++)
+    {
+        scanf("%s" ,str);
+        if (atoi(str)!=0)
+        {
+        a[j]=atoi(str);
+         j++;}
+        else
+        {
+    len=len-1;
+        }
+    }
+    for(i=0;i<len;i++)
+    { large = large>=a[i]?large:a[i];
+      small = small<a[i]?small:a[i];
+      
+    }
+    printf("largest number=%d , smallest number=%d",large,small);
+    
+
+    return 0;
+}
+
