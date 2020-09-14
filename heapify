@@ -1,0 +1,87 @@
+//conversion of a full complete binary tree into a MAX HEAP and HEAP SORT!!
+
+
+#include <stdio.h>
+#include<stdlib.h>
+#include<math.h>
+void heapify(int *q)
+{ 
+    
+    for(int i=2;i<=3;i++)
+    {  int a=*(q+i);
+        if(*(q+(2*i))<*(q+(2*i)+ 1)&&(*(q+i)<*(q+(2*i)+ 1)))
+        {   *(q+i)=*(q+(2*i)+1);
+            *(q+(2*i)+1)=a;
+        }
+        else if(*(q+(2*i)+ 1)<*(q+(2*i))&&*(q+i)<*(q+(2*i)))
+        {   *(q+i)=*(q+(2*i));
+            *(q+(2*i))=a;
+        }
+    }
+        
+    if((*(q+ 2)<*(q+ 3))&&(*(q+ 1)<*(q+ 3)))
+    {    int a=*(q+ 1);
+         *(q+ 1)=*(q+ 3);
+         *(q+ 3)=a;
+    }
+    else if((*(q+ 3)<*(q+ 2))&&(*(q+ 1)<*(q+ 2)))
+    {
+    int temp=*(q + 1);
+    *(q+ 1)=*(q+ 2);
+    *(q+ 2)=temp;
+    }
+
+}
+
+void delete(int *q,int *b)
+{     
+     int temp=*(q+*b);
+    *(q+*b)=*(q+ 1);
+    *(q+ 1)=temp;
+    printf("The deleted element is %d \n",*(q+*b));
+    *(q+*b)=0;
+    for(int i=0;i<2;i++)
+    heapify(q);
+    *b-=1;
+}
+       
+
+
+int main()
+{  int back=7;
+   int q[8];
+   int i;
+   printf("Enter the 7 elements \n");
+   
+   for( i=1;i<8;i++)
+   scanf("%d",&q[i]);
+   
+   for(i=1;i<3;i++)
+   {
+   heapify(&q);
+   
+   
+   if(i==2)
+   printf("THE MAX HEAP IS AS FOLLOWS \n");
+   
+   
+   printf("\t\t\t\t%d\n",q[1]);
+   printf("\t\t%d",q[2]);
+   printf("\t\t\t\t%d\n",q[3]);
+   printf("\t%d",q[4]);
+   printf("\t\t%d",q[5]);
+   printf("\t\t%d",q[6]);
+   printf("\t\t%d\n",q[7]);
+   printf("------------------------------------------------------------------\n");
+   
+   }
+   printf("The elements in a heap when deleted one by one are sorted!!! \n");
+   for(i=1;i<8;i++)
+   {
+     delete(&q,&back);
+    }
+    
+   
+    
+}
+
