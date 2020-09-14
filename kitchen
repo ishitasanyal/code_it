@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+
+int main()
+{
+    int n=0 ,c=1 ,r=0;
+    printf("enter the number of boxes you brought for the kitchen  \n");
+    scanf("%d",&n);
+    printf("this is how your boxes are arranged \n");
+    int arr[n+1];
+    int i;
+    for(i=0;i<n;i++)
+    {  arr[i]= c;
+    
+    printf("box  %d  ",c);
+    printf("\n");
+    c++;
+    }
+  
+printf("Hello friend please eneter the position in which you want to put the box in \n");
+   scanf(" %d" ,&r);
+  c=r;
+   for(i=r;i<n+1;i++)
+   { 
+      arr[i]=i;
+     
+   }
+  
+   printf("new arrangement \n");
+    for(i=0;i<n+1;i++)
+    {  if(i+1==c)
+       {printf("new box  ");
+      }
+     else
+     {
+printf("box  %d  ",arr[i]);
+     }
+    printf("\n");
+     }
+}
+
+     
